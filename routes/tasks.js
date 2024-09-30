@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Task = require("../models/Task.js");
 
-//CREATE TASK
+
 router.post("/create", async(req, res) => {
     try {
         const task = await Task.create({...req.body, completed: false });
@@ -15,7 +15,7 @@ router.post("/create", async(req, res) => {
     }
 });
 
-//GET TASKS
+
 
 router.get("/", async(req, res) => {
     try {
@@ -26,7 +26,6 @@ router.get("/", async(req, res) => {
     }
 });
 
-//GET TASK BY ID
 
 router.get("/id/:_id", async(req, res) => {
     try {
@@ -41,7 +40,6 @@ router.get("/id/:_id", async(req, res) => {
     }
 }, )
 
-//MARK TASK AS COMPLETED (en este endpoint no le permitimos que edite el titulo)
 
 router.put("/markAsCompleted/:_id", async(req, res) => {
         try {
@@ -60,7 +58,7 @@ router.put("/markAsCompleted/:_id", async(req, res) => {
         }
     }),
 
-    //UPDATE TASK
+    
 
     router.put("/id/:_id", async(req, res) => {
         try {
